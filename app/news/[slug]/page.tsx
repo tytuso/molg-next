@@ -12,6 +12,7 @@ import {
 
 import Container from "@/components/layout/Container";
 import ArticleContent from "@/components/news/ArticleContent";
+import ArticleShare from "@/components/news/ArticleShare";
 import RelatedNews from "@/components/news/RelatedNews";
 
 import {
@@ -95,6 +96,10 @@ export default async function ArticlePage({
   const category = getPostCategory(post);
   const author = getPostAuthor(post);
   const featuredImage = getFeaturedImage(post);
+
+  const articleExcerpt = stripHtml(
+    post.excerpt?.rendered ?? "",
+  ).slice(0, 180);
 
   const categoryIds =
     "categories" in post &&
@@ -239,6 +244,11 @@ export default async function ArticlePage({
             content={post.content.rendered}
           />
         </article>
+
+        <ArticleShare
+          title={title}
+          excerpt={articleExcerpt}
+        />
 
         <div className="mt-7">
           <Link
