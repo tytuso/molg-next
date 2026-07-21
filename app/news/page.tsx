@@ -109,7 +109,7 @@ export default async function NewsPage({
 
           {archivePosts.length > 0 ? (
             <>
-              <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-5">
+              <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
                 {archivePosts.map((post, index) => (
                   <NewsArchiveCard
                     key={post.id}
